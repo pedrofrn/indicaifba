@@ -1,37 +1,5 @@
 <?php
-/**
- * Twenty Fourteen functions and definitions
- *
- * Set up the theme and provides some helper functions, which are used in the
- * theme as custom template tags. Others are attached to action and filter
- * hooks in WordPress to change core functionality.
- *
- * When using a child theme you can override certain functions (those wrapped
- * in a function_exists() call) by defining them first in your child theme's
- * functions.php file. The child theme's functions.php file is included before
- * the parent theme's file, so the child theme functions would be used.
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- * @link https://developer.wordpress.org/themes/advanced-topics/child-themes/
- *
- * Functions that are not pluggable (not wrapped in function_exists()) are
- * instead attached to a filter or action hook.
- *
- * For more information on hooks, actions, and filters,
- * @link https://developer.wordpress.org/plugins/
- *
- * @package WordPress
- * @subpackage Twenty_Fourteen
- * @since Twenty Fourteen 1.0
- */
 
-/**
- * Set up the content width value based on the theme's design.
- *
- * @see twentyfourteen_content_width()
- *
- * @since Twenty Fourteen 1.0
- */
 if ( ! isset( $content_width ) ) {
 	$content_width = 474;
 }
@@ -41,7 +9,7 @@ if ( function_exists('register_sidebar')){
 	# Area de widgets do Menu Principal
 	register_sidebar(array(
 		        'name' => 'Menu Principal',
-				'description' => '',
+				'description' => 'asdasds',
 		        'before_widget' => '',
 		        'after_widget' => '',
 		        'before_title' => '<div id="TituloMenu">',
@@ -89,7 +57,7 @@ if ( function_exists('register_sidebar')){
 
 	# Area de widgets do rodapé
 	register_sidebar(array(
-		        'name' => 'Informações do rodapé',
+		        'name' => 'Informações do projeto',
 				'description' => 'Endereço, contatos e informações do campus',
 		        'before_widget' => '',
 		        'after_widget' => '',
@@ -152,7 +120,7 @@ if ( version_compare( $GLOBALS['wp_version'], '3.6', '<' ) ) {
 	require get_template_directory() . '/inc/back-compat.php';
 }
 
-if ( ! function_exists( 'twentyfourteen_setup' ) ) :
+if ( ! function_exists( 'indicaifba_setup' ) ) :
 	/**
 	 * Twenty Fourteen setup.
 	 *
@@ -164,20 +132,20 @@ if ( ! function_exists( 'twentyfourteen_setup' ) ) :
 	 *
 	 * @since Twenty Fourteen 1.0
 	 */
-	function twentyfourteen_setup() {
+	function indicaifba_setup() {
 
 		/*
 		 * Make Twenty Fourteen available for translation.
 		 *
-		 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/twentyfourteen
+		 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/indicaifba
 		 * If you're building a theme based on Twenty Fourteen, use a find and
-		 * replace to change 'twentyfourteen' to the name of your theme in all
+		 * replace to change 'indicaifba' to the name of your theme in all
 		 * template files.
 		 */
-		load_theme_textdomain( 'twentyfourteen' );
+		load_theme_textdomain( 'indicaifba' );
 
 		// This theme styles the visual editor to resemble the theme style.
-		add_editor_style( array( 'css/editor-style.css', twentyfourteen_font_url(), 'genericons/genericons.css' ) );
+		add_editor_style( array( 'css/editor-style.css', indicaifba_font_url(), 'genericons/genericons.css' ) );
 
 		// Load regular editor styles into the new block-based editor.
 		add_theme_support( 'editor-styles' );
@@ -193,32 +161,32 @@ if ( ! function_exists( 'twentyfourteen_setup' ) ) :
 			'editor-color-palette',
 			array(
 				array(
-					'name'  => __( 'Green', 'twentyfourteen' ),
+					'name'  => __( 'Green', 'indicaifba' ),
 					'slug'  => 'green',
 					'color' => '#24890d',
 				),
 				array(
-					'name'  => __( 'Black', 'twentyfourteen' ),
+					'name'  => __( 'Black', 'indicaifba' ),
 					'slug'  => 'black',
 					'color' => '#000',
 				),
 				array(
-					'name'  => __( 'Dark Gray', 'twentyfourteen' ),
+					'name'  => __( 'Dark Gray', 'indicaifba' ),
 					'slug'  => 'dark-gray',
 					'color' => '#2b2b2b',
 				),
 				array(
-					'name'  => __( 'Medium Gray', 'twentyfourteen' ),
+					'name'  => __( 'Medium Gray', 'indicaifba' ),
 					'slug'  => 'medium-gray',
 					'color' => '#767676',
 				),
 				array(
-					'name'  => __( 'Light Gray', 'twentyfourteen' ),
+					'name'  => __( 'Light Gray', 'indicaifba' ),
 					'slug'  => 'light-gray',
 					'color' => '#f5f5f5',
 				),
 				array(
-					'name'  => __( 'White', 'twentyfourteen' ),
+					'name'  => __( 'White', 'indicaifba' ),
 					'slug'  => 'white',
 					'color' => '#fff',
 				),
@@ -231,13 +199,13 @@ if ( ! function_exists( 'twentyfourteen_setup' ) ) :
 		// Enable support for Post Thumbnails, and declare two sizes.
 		add_theme_support( 'post-thumbnails' );
 		set_post_thumbnail_size( 672, 372, true );
-		add_image_size( 'twentyfourteen-full-width', 1038, 576, true );
+		add_image_size( 'indicaifba-full-width', 1038, 576, true );
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'primary'   => __( 'Top primary menu', 'twentyfourteen' ),
-				'secondary' => __( 'Secondary menu in left sidebar', 'twentyfourteen' ),
+				'primary'   => __( 'Top primary menu', 'indicaifba' ),
+				'secondary' => __( 'Secondary menu in left sidebar', 'indicaifba' ),
 			)
 		);
 
@@ -291,7 +259,7 @@ if ( ! function_exists( 'twentyfourteen_setup' ) ) :
 			 * }
 			 */
 			apply_filters(
-				'twentyfourteen_custom_background_args',
+				'indicaifba_custom_background_args',
 				array(
 					'default-color' => 'f5f5f5',
 				)
@@ -302,7 +270,7 @@ if ( ! function_exists( 'twentyfourteen_setup' ) ) :
 		add_theme_support(
 			'featured-content',
 			array(
-				'featured_content_filter' => 'twentyfourteen_get_featured_posts',
+				'featured_content_filter' => 'indicaifba_get_featured_posts',
 				'max_posts'               => 6,
 			)
 		);
@@ -313,20 +281,20 @@ if ( ! function_exists( 'twentyfourteen_setup' ) ) :
 		// Indicate widget sidebars can use selective refresh in the Customizer.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 	}
-endif; // twentyfourteen_setup()
-add_action( 'after_setup_theme', 'twentyfourteen_setup' );
+endif; // indicaifba_setup()
+add_action( 'after_setup_theme', 'indicaifba_setup' );
 
 /**
  * Adjust content_width value for image attachment template.
  *
  * @since Twenty Fourteen 1.0
  */
-function twentyfourteen_content_width() {
+function indicaifba_content_width() {
 	if ( is_attachment() && wp_attachment_is_image() ) {
 		$GLOBALS['content_width'] = 810;
 	}
 }
-add_action( 'template_redirect', 'twentyfourteen_content_width' );
+add_action( 'template_redirect', 'indicaifba_content_width' );
 
 /**
  * Getter function for Featured Content Plugin.
@@ -335,7 +303,7 @@ add_action( 'template_redirect', 'twentyfourteen_content_width' );
  *
  * @return array An array of WP_Post objects.
  */
-function twentyfourteen_get_featured_posts() {
+function indicaifba_get_featured_posts() {
 	/**
 	 * Filters the featured posts to return in Twenty Fourteen.
 	 *
@@ -343,7 +311,7 @@ function twentyfourteen_get_featured_posts() {
 	 *
 	 * @param array|bool $posts Array of featured posts, otherwise false.
 	 */
-	return apply_filters( 'twentyfourteen_get_featured_posts', array() );
+	return apply_filters( 'indicaifba_get_featured_posts', array() );
 }
 
 /**
@@ -353,8 +321,8 @@ function twentyfourteen_get_featured_posts() {
  *
  * @return bool Whether there are featured posts.
  */
-function twentyfourteen_has_featured_posts() {
-	return ! is_paged() && (bool) twentyfourteen_get_featured_posts();
+function indicaifba_has_featured_posts() {
+	return ! is_paged() && (bool) indicaifba_get_featured_posts();
 }
 
 /**
@@ -371,13 +339,13 @@ function twentyfourteen_has_featured_posts() {
  *
  * @return string
  */
-function twentyfourteen_font_url() {
+function indicaifba_font_url() {
 	$font_url = '';
 	/*
 	 * translators: If there are characters in your language that are not supported
 	 * by Lato, translate this to 'off'. Do not translate into your own language.
 	 */
-	if ( 'off' !== _x( 'on', 'Lato font: on or off', 'twentyfourteen' ) ) {
+	if ( 'off' !== _x( 'on', 'Lato font: on or off', 'indicaifba' ) ) {
 		$query_args = array(
 			'family'  => urlencode( 'Lato:300,400,700,900,300italic,400italic,700italic' ),
 			'subset'  => urlencode( 'latin,latin-ext' ),
@@ -394,29 +362,29 @@ function twentyfourteen_font_url() {
  *
  * @since Twenty Fourteen 1.0
  */
-function twentyfourteen_scripts() {
+function indicaifba_scripts() {
 	// Add Lato font, used in the main stylesheet.
-	wp_enqueue_style( 'twentyfourteen-lato', twentyfourteen_font_url(), array(), null );
+	wp_enqueue_style( 'indicaifba-lato', indicaifba_font_url(), array(), null );
 
 	// Add Genericons font, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.3' );
 
 	// Load our main stylesheet.
-	wp_enqueue_style( 'twentyfourteen-style', get_stylesheet_uri(), array(), '20221101' );
+	wp_enqueue_style( 'indicaifba-style', get_stylesheet_uri(), array(), '20221101' );
 
 	// Theme block stylesheet.
-	wp_enqueue_style( 'twentyfourteen-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'twentyfourteen-style' ), '20210622' );
+	wp_enqueue_style( 'indicaifba-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'indicaifba-style' ), '20210622' );
 
 	// Load the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'twentyfourteen-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentyfourteen-style' ), '20140711' );
-	wp_style_add_data( 'twentyfourteen-ie', 'conditional', 'lt IE 9' );
+	wp_enqueue_style( 'indicaifba-ie', get_template_directory_uri() . '/css/ie.css', array( 'indicaifba-style' ), '20140711' );
+	wp_style_add_data( 'indicaifba-ie', 'conditional', 'lt IE 9' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
 	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'twentyfourteen-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20150120' );
+		wp_enqueue_script( 'indicaifba-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20150120' );
 	}
 
 	if ( is_active_sidebar( 'sidebar-3' ) ) {
@@ -424,30 +392,30 @@ function twentyfourteen_scripts() {
 	}
 
 	if ( is_front_page() && 'slider' === get_theme_mod( 'featured_content_layout' ) ) {
-		wp_enqueue_script( 'twentyfourteen-slider', get_template_directory_uri() . '/js/slider.js', array( 'jquery' ), '20150120', true );
+		wp_enqueue_script( 'indicaifba-slider', get_template_directory_uri() . '/js/slider.js', array( 'jquery' ), '20150120', true );
 		wp_localize_script(
-			'twentyfourteen-slider',
+			'indicaifba-slider',
 			'featuredSliderDefaults',
 			array(
-				'prevText' => __( 'Previous', 'twentyfourteen' ),
-				'nextText' => __( 'Next', 'twentyfourteen' ),
+				'prevText' => __( 'Previous', 'indicaifba' ),
+				'nextText' => __( 'Next', 'indicaifba' ),
 			)
 		);
 	}
 
-	wp_enqueue_script( 'twentyfourteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20210122', true );
+	wp_enqueue_script( 'indicaifba-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20210122', true );
 }
-add_action( 'wp_enqueue_scripts', 'twentyfourteen_scripts' );
+add_action( 'wp_enqueue_scripts', 'indicaifba_scripts' );
 
 /**
  * Enqueue Google fonts style to admin screen for custom header display.
  *
  * @since Twenty Fourteen 1.0
  */
-function twentyfourteen_admin_fonts() {
-	wp_enqueue_style( 'twentyfourteen-lato', twentyfourteen_font_url(), array(), null );
+function indicaifba_admin_fonts() {
+	wp_enqueue_style( 'indicaifba-lato', indicaifba_font_url(), array(), null );
 }
-add_action( 'admin_print_scripts-appearance_page_custom-header', 'twentyfourteen_admin_fonts' );
+add_action( 'admin_print_scripts-appearance_page_custom-header', 'indicaifba_admin_fonts' );
 
 /**
  * Add preconnect for Google Fonts.
@@ -458,8 +426,8 @@ add_action( 'admin_print_scripts-appearance_page_custom-header', 'twentyfourteen
  * @param string  $relation_type The relation type the URLs are printed.
  * @return array URLs to print for resource hints.
  */
-function twentyfourteen_resource_hints( $urls, $relation_type ) {
-	if ( wp_style_is( 'twentyfourteen-lato', 'queue' ) && 'preconnect' === $relation_type ) {
+function indicaifba_resource_hints( $urls, $relation_type ) {
+	if ( wp_style_is( 'indicaifba-lato', 'queue' ) && 'preconnect' === $relation_type ) {
 		if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '>=' ) ) {
 			$urls[] = array(
 				'href' => 'https://fonts.gstatic.com',
@@ -472,28 +440,28 @@ function twentyfourteen_resource_hints( $urls, $relation_type ) {
 
 	return $urls;
 }
-add_filter( 'wp_resource_hints', 'twentyfourteen_resource_hints', 10, 2 );
+add_filter( 'wp_resource_hints', 'indicaifba_resource_hints', 10, 2 );
 
 /**
  * Enqueue styles for the block-based editor.
  *
  * @since Twenty Fourteen 2.3
  */
-function twentyfourteen_block_editor_styles() {
+function indicaifba_block_editor_styles() {
 	// Block styles.
-	wp_enqueue_style( 'twentyfourteen-block-editor-style', get_template_directory_uri() . '/css/editor-blocks.css', array(), '20210216' );
+	wp_enqueue_style( 'indicaifba-block-editor-style', get_template_directory_uri() . '/css/editor-blocks.css', array(), '20210216' );
 	// Add custom fonts.
-	wp_enqueue_style( 'twentyfourteen-fonts', twentyfourteen_font_url(), array(), null );
+	wp_enqueue_style( 'indicaifba-fonts', indicaifba_font_url(), array(), null );
 }
-add_action( 'enqueue_block_editor_assets', 'twentyfourteen_block_editor_styles' );
+add_action( 'enqueue_block_editor_assets', 'indicaifba_block_editor_styles' );
 
-if ( ! function_exists( 'twentyfourteen_the_attached_image' ) ) :
+if ( ! function_exists( 'indicaifba_the_attached_image' ) ) :
 	/**
 	 * Print the attached image with a link to the next attached image.
 	 *
 	 * @since Twenty Fourteen 1.0
 	 */
-	function twentyfourteen_the_attached_image() {
+	function indicaifba_the_attached_image() {
 		$post = get_post();
 		/**
 		 * Filters the default Twenty Fourteen attachment size.
@@ -507,7 +475,7 @@ if ( ! function_exists( 'twentyfourteen_the_attached_image' ) ) :
 		 *     @type int $width  Width of the image in pixels. Default 810.
 		 * }
 		 */
-		$attachment_size     = apply_filters( 'twentyfourteen_attachment_size', array( 810, 810 ) );
+		$attachment_size     = apply_filters( 'indicaifba_attachment_size', array( 810, 810 ) );
 		$next_attachment_url = wp_get_attachment_url();
 
 		/*
@@ -555,13 +523,13 @@ if ( ! function_exists( 'twentyfourteen_the_attached_image' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'twentyfourteen_list_authors' ) ) :
+if ( ! function_exists( 'indicaifba_list_authors' ) ) :
 	/**
 	 * Print a list of all site contributors who published at least one post.
 	 *
 	 * @since Twenty Fourteen 1.0
 	 */
-	function twentyfourteen_list_authors() {
+	function indicaifba_list_authors() {
 		$args = array(
 			'fields'     => 'ID',
 			'orderby'    => 'post_count',
@@ -582,7 +550,7 @@ if ( ! function_exists( 'twentyfourteen_list_authors' ) ) :
 		 *
 		 * @param array $args Query arguments.
 		 */
-		$args = apply_filters( 'twentyfourteen_list_authors_query_args', $args );
+		$args = apply_filters( 'indicaifba_list_authors_query_args', $args );
 
 		$contributor_ids = get_users( $args );
 
@@ -606,7 +574,7 @@ if ( ! function_exists( 'twentyfourteen_list_authors' ) ) :
 				<a class="button contributor-posts-link" href="<?php echo esc_url( get_author_posts_url( $contributor_id ) ); ?>">
 					<?php
 					/* translators: %d: Post count. */
-					printf( _n( '%d Article', '%d Articles', $post_count, 'twentyfourteen' ), $post_count );
+					printf( _n( '%d Article', '%d Articles', $post_count, 'indicaifba' ), $post_count );
 					?>
 				</a>
 			</div><!-- .contributor-summary -->
@@ -635,7 +603,7 @@ endif;
  * @param array $classes A list of existing body class values.
  * @return array The filtered body class list.
  */
-function twentyfourteen_body_classes( $classes ) {
+function indicaifba_body_classes( $classes ) {
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
@@ -673,7 +641,7 @@ function twentyfourteen_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'twentyfourteen_body_classes' );
+add_filter( 'body_class', 'indicaifba_body_classes' );
 
 /**
  * Extend the default WordPress post classes.
@@ -686,14 +654,14 @@ add_filter( 'body_class', 'twentyfourteen_body_classes' );
  * @param array $classes A list of existing post class values.
  * @return array The filtered post class list.
  */
-function twentyfourteen_post_classes( $classes ) {
+function indicaifba_post_classes( $classes ) {
 	if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) {
 		$classes[] = 'has-post-thumbnail';
 	}
 
 	return $classes;
 }
-add_filter( 'post_class', 'twentyfourteen_post_classes' );
+add_filter( 'post_class', 'indicaifba_post_classes' );
 
 /**
  * Create a nicely formatted and more specific title element text for output
@@ -708,7 +676,7 @@ add_filter( 'post_class', 'twentyfourteen_post_classes' );
  * @param string $sep Optional separator.
  * @return string The filtered title.
  */
-function twentyfourteen_wp_title( $title, $sep ) {
+function indicaifba_wp_title( $title, $sep ) {
 	global $paged, $page;
 
 	if ( is_feed() ) {
@@ -727,12 +695,12 @@ function twentyfourteen_wp_title( $title, $sep ) {
 	// Add a page number if necessary.
 	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
 		/* translators: %s: Page number. */
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'twentyfourteen' ), max( $paged, $page ) );
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'indicaifba' ), max( $paged, $page ) );
 	}
 
 	return $title;
 }
-add_filter( 'wp_title', 'twentyfourteen_wp_title', 10, 2 );
+add_filter( 'wp_title', 'indicaifba_wp_title', 10, 2 );
 
 
 /**
@@ -744,7 +712,7 @@ add_filter( 'wp_title', 'twentyfourteen_wp_title', 10, 2 );
  * @param array $args Arguments for tag cloud widget.
  * @return array The filtered arguments for tag cloud widget.
  */
-function twentyfourteen_widget_tag_cloud_args( $args ) {
+function indicaifba_widget_tag_cloud_args( $args ) {
 	$args['largest']  = 22;
 	$args['smallest'] = 8;
 	$args['unit']     = 'pt';
@@ -752,7 +720,7 @@ function twentyfourteen_widget_tag_cloud_args( $args ) {
 
 	return $args;
 }
-add_filter( 'widget_tag_cloud_args', 'twentyfourteen_widget_tag_cloud_args' );
+add_filter( 'widget_tag_cloud_args', 'indicaifba_widget_tag_cloud_args' );
 
 
 
