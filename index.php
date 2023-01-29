@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <section>
-    <div id="home">
+    <div id="bgUppingSquares">
         <div>
             <div class="area">
                 <ul class="circles">

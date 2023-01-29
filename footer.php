@@ -29,7 +29,7 @@
                 <?php endif; ?>
             </dic>
             <dic class="footer2">
-                <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Contato')) : ?>
+                <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Formulário de contato')) : ?>
                     <div class="contactForm">
                         <form>
                             <input type="text" placeholder="Digite seu nome" required />

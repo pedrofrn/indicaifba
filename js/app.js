@@ -18,12 +18,22 @@ buttonLupa.innerHTML = svgLupa;
 searchLupa.innerHTML = svgLupa;
 inputLupa.value = '';
 
+const linkDoc = document.querySelectorAll('#linkDoc');
+const spanLink = document.querySelectorAll('.sufixodoc');
+
+for (let n = 0; n < linkDoc.length; n++) {
+    const hrefLink = linkDoc[n].href;
+    const splitHref = hrefLink.split('.');
+    const contagemSplit = Number(splitHref.length);
+    spanLink[n].innerText = hrefLink.split('.')[contagemSplit - 1].toUpperCase();
+}
+
 hambuguerCheckbox.addEventListener('click', () => {
     if (hambuguerCheckbox.checked) {
         divMenuHamburguer.style.display = 'flex';
         searchLupa.classList.add('displayNone');
     }
-    else  {
+    else {
         divMenuHamburguer.style.display = 'none';
         searchLupa.classList.remove('displayNone');
     }
@@ -37,3 +47,30 @@ searchLupa.addEventListener('click', () => {
         searchLupa.classList.add('displayNone');
     }
 })
+
+function docSearch() {
+    let q = document.getElementById("q");
+    let v = q.value.toLowerCase();
+    let rows = document.getElementsByClassName("docSingle");
+    let on = 0;
+    for (let i = 0; i < rows.length; i++) {
+        let fullname = rows[i].getElementsByClassName("linkDoc");
+
+        fullname = fullname[0].innerHTML.toLowerCase();
+        if (fullname) {
+            if (v.length == 0 || (v.length < 3 && fullname.indexOf(v) == 0) || (v.length >= 3 && fullname.indexOf(v) > -1)) {
+                rows[i].style.display = "";
+                on++;
+            } else {
+                rows[i].style.display = "none";
+            }
+        }
+    }
+    let n = document.getElementById("noresults");
+    if (on == 0 && n) {
+        n.style.display = "";
+        document.getElementById("qt").innerHTML = q.value;
+    } else {
+        n.style.display = "none";
+    }
+}

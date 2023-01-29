@@ -44,7 +44,6 @@
 				<div class="menuHamburguer">
 					<div class="listMenu">
 						<?php wp_nav_menu(); ?>
-						<?php get_search_form(); ?>
 					</div>
 					<label for="check">
 						<input type="checkbox" id="check" />

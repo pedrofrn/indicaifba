@@ -67,8 +67,8 @@ if ( function_exists('register_sidebar')){
 
 	# Area de widgets da rede social Facebook
 	register_sidebar(array(
-		        'name' => 'Rede Social Facebook',
-				'description' => 'Ícone e endereço da rede social no topo',
+		        'name' => 'Formulário de contato',
+				'description' => 'Espaço no rodapé para incluir plugin de contato',
 		        'before_widget' => '',
 		        'after_widget' => '',
 		        'before_title' => '',
@@ -367,31 +367,31 @@ function indicaifba_scripts() {
 	wp_enqueue_style( 'indicaifba-lato', indicaifba_font_url(), array(), null );
 
 	// Add Genericons font, used in the main stylesheet.
-	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.3' );
+	//wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.3' );
 
 	// Load our main stylesheet.
 	wp_enqueue_style( 'indicaifba-style', get_stylesheet_uri(), array(), '20221101' );
 
 	// Theme block stylesheet.
-	wp_enqueue_style( 'indicaifba-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'indicaifba-style' ), '20210622' );
+	//wp_enqueue_style( 'indicaifba-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'indicaifba-style' ), '20210622' );
 
 	// Load the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'indicaifba-ie', get_template_directory_uri() . '/css/ie.css', array( 'indicaifba-style' ), '20140711' );
-	wp_style_add_data( 'indicaifba-ie', 'conditional', 'lt IE 9' );
+	//wp_enqueue_style( 'indicaifba-ie', get_template_directory_uri() . '/css/ie.css', array( 'indicaifba-style' ), '20140711' );
+	//wp_style_add_data( 'indicaifba-ie', 'conditional', 'lt IE 9' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	if ( is_singular() && wp_attachment_is_image() ) {
+	/* if ( is_singular() && wp_attachment_is_image() ) {
 		wp_enqueue_script( 'indicaifba-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20150120' );
-	}
+	} */
 
 	if ( is_active_sidebar( 'sidebar-3' ) ) {
 		wp_enqueue_script( 'jquery-masonry' );
 	}
 
-	if ( is_front_page() && 'slider' === get_theme_mod( 'featured_content_layout' ) ) {
+	/* if ( is_front_page() && 'slider' === get_theme_mod( 'featured_content_layout' ) ) {
 		wp_enqueue_script( 'indicaifba-slider', get_template_directory_uri() . '/js/slider.js', array( 'jquery' ), '20150120', true );
 		wp_localize_script(
 			'indicaifba-slider',
@@ -401,9 +401,9 @@ function indicaifba_scripts() {
 				'nextText' => __( 'Next', 'indicaifba' ),
 			)
 		);
-	}
+	} */
 
-	wp_enqueue_script( 'indicaifba-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20210122', true );
+	//wp_enqueue_script( 'indicaifba-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20210122', true );
 }
 add_action( 'wp_enqueue_scripts', 'indicaifba_scripts' );
 
@@ -447,13 +447,13 @@ add_filter( 'wp_resource_hints', 'indicaifba_resource_hints', 10, 2 );
  *
  * @since Twenty Fourteen 2.3
  */
-function indicaifba_block_editor_styles() {
+/* function indicaifba_block_editor_styles() {
 	// Block styles.
 	wp_enqueue_style( 'indicaifba-block-editor-style', get_template_directory_uri() . '/css/editor-blocks.css', array(), '20210216' );
 	// Add custom fonts.
 	wp_enqueue_style( 'indicaifba-fonts', indicaifba_font_url(), array(), null );
 }
-add_action( 'enqueue_block_editor_assets', 'indicaifba_block_editor_styles' );
+add_action( 'enqueue_block_editor_assets', 'indicaifba_block_editor_styles' ); */
 
 if ( ! function_exists( 'indicaifba_the_attached_image' ) ) :
 	/**
