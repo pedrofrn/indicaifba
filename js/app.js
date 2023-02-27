@@ -19,13 +19,13 @@ searchLupa.innerHTML = svgLupa;
 inputLupa.value = '';
 
 const linkDoc = document.querySelectorAll('#linkDoc');
-const spanLink = document.querySelectorAll('.sufixodoc');
+const divSufixo = document.querySelectorAll('.sufixodoc');
 
 for (let n = 0; n < linkDoc.length; n++) {
     const hrefLink = linkDoc[n].href;
     const splitHref = hrefLink.split('.');
     const contagemSplit = Number(splitHref.length);
-    spanLink[n].innerText = hrefLink.split('.')[contagemSplit - 1].toUpperCase();
+    divSufixo[n].innerText = hrefLink.split('.')[contagemSplit - 1].toUpperCase();
 }
 
 hambuguerCheckbox.addEventListener('click', () => {

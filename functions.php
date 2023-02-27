@@ -1,114 +1,29 @@
 <?php
 
-if ( ! isset( $content_width ) ) {
+if (!isset($content_width)) {
 	$content_width = 474;
 }
 
-if ( function_exists('register_sidebar')){
-
-	# Area de widgets do Menu Principal
-	register_sidebar(array(
-		        'name' => 'Menu Principal',
-				'description' => 'asdasds',
-		        'before_widget' => '',
-		        'after_widget' => '',
-		        'before_title' => '<div id="TituloMenu">',
-		        'after_title' => '</div>',
-	));
-
-	# Area de widgets das fotos
-	register_sidebar(array(
-		        'name' => 'Fotos',
-		        'description' => 'Shortcode do Instagram',
-				'before_widget' => '',
-		        'after_widget' => '',
-		        'before_title' => '',
-		        'after_title' => '',
-	));
-	
-	# Area de widgets do banner
-	register_sidebar(array(
-		        'name' => 'Banner',
-				'description' => 'Lateral direita',
-		        'before_widget' => '',
-		        'after_widget' => '',
-		        'before_title' => '',
-		        'after_title' => '',
-	));
-	
-	# Area de widgets do menu direita
-	register_sidebar(array(
-		        'name' => 'Menu Direita',
-				'before_widget' => '',
-		        'after_widget' => '',
-		        'before_title' => '',
-		        'after_title' => '',
-	));
-	
-	# Area de widgets do facebook
-	register_sidebar(array(
-		        'name' => 'Facebook',
-				'description' => 'Facebook Page Like Widget',
-		        'before_widget' => '',
-		        'after_widget' => '',
-		        'before_title' => '',
-		        'after_title' => '',
-	));
+if (function_exists('register_sidebar')) {
 
 	# Area de widgets do rodapé
 	register_sidebar(array(
-		        'name' => 'Informações do projeto',
-				'description' => 'Endereço, contatos e informações do campus',
-		        'before_widget' => '',
-		        'after_widget' => '',
-		        'before_title' => '',
-		        'after_title' => '',
+		'name' => 'Informações do projeto',
+		'description' => 'Endereço, contatos e informações do campus',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => '',
 	));
 
 	# Area de widgets da rede social Facebook
 	register_sidebar(array(
-		        'name' => 'Formulário de contato',
-				'description' => 'Espaço no rodapé para incluir plugin de contato',
-		        'before_widget' => '',
-		        'after_widget' => '',
-		        'before_title' => '',
-		        'after_title' => '',
-	));
-	# Area de widgets da rede social Twitter
-	register_sidebar(array(
-		        'name' => 'Rede Social Twitter',
-				'description' => 'Ícone e endereço da rede social no topo',
-		        'before_widget' => '',
-		        'after_widget' => '',
-		        'before_title' => '',
-		        'after_title' => '',
-	));
-	# Area de widgets da rede social Youtube
-	register_sidebar(array(
-		        'name' => 'Rede Social Youtube',
-				'description' => 'Ícone e endereço da rede social no topo',
-		        'before_widget' => '',
-		        'after_widget' => '',
-		        'before_title' => '',
-		        'after_title' => '',
-	));
-	# Area de widgets da rede social Instagram
-	register_sidebar(array(
-		        'name' => 'Rede Social Instagram',
-				'description' => 'Ícone e endereço da rede social no topo',
-		        'before_widget' => '',
-		        'after_widget' => '',
-		        'before_title' => '',
-		        'after_title' => '',
-	));
-	# Area de widgets do SlideShow Noticia
-	register_sidebar(array(
-		        'name' => 'Slide Show Noticia',
-				'description' => 'Slideshow Widget',
-		        'before_widget' => '',
-		        'after_widget' => '',
-		        'before_title' => '',
-		        'after_title' => '',
+		'name' => 'Formulário de contato',
+		'description' => 'Espaço no rodapé para incluir plugin de contato',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => '',
 	));
 }
 add_filter('widget_text', 'do_shortcode');
@@ -116,11 +31,11 @@ add_filter('widget_text', 'do_shortcode');
 /**
  * Twenty Fourteen only works in WordPress 3.6 or later.
  */
-if ( version_compare( $GLOBALS['wp_version'], '3.6', '<' ) ) {
+if (version_compare($GLOBALS['wp_version'], '3.6', '<')) {
 	require get_template_directory() . '/inc/back-compat.php';
 }
 
-if ( ! function_exists( 'indicaifba_setup' ) ) :
+if (!function_exists('indicaifba_setup')) :
 	/**
 	 * Twenty Fourteen setup.
 	 *
@@ -132,7 +47,8 @@ if ( ! function_exists( 'indicaifba_setup' ) ) :
 	 *
 	 * @since Twenty Fourteen 1.0
 	 */
-	function indicaifba_setup() {
+	function indicaifba_setup()
+	{
 
 		/*
 		 * Make Twenty Fourteen available for translation.
@@ -142,51 +58,51 @@ if ( ! function_exists( 'indicaifba_setup' ) ) :
 		 * replace to change 'indicaifba' to the name of your theme in all
 		 * template files.
 		 */
-		load_theme_textdomain( 'indicaifba' );
+		load_theme_textdomain('indicaifba');
 
 		// This theme styles the visual editor to resemble the theme style.
-		add_editor_style( array( 'css/editor-style.css', indicaifba_font_url(), 'genericons/genericons.css' ) );
+		add_editor_style(array('css/editor-style.css', indicaifba_font_url(), 'genericons/genericons.css'));
 
 		// Load regular editor styles into the new block-based editor.
-		add_theme_support( 'editor-styles' );
+		add_theme_support('editor-styles');
 
 		// Load default block styles.
-		add_theme_support( 'wp-block-styles' );
+		add_theme_support('wp-block-styles');
 
 		// Add support for responsive embeds.
-		add_theme_support( 'responsive-embeds' );
+		add_theme_support('responsive-embeds');
 
 		// Add support for custom color scheme.
 		add_theme_support(
 			'editor-color-palette',
 			array(
 				array(
-					'name'  => __( 'Green', 'indicaifba' ),
+					'name'  => __('Green', 'indicaifba'),
 					'slug'  => 'green',
 					'color' => '#24890d',
 				),
 				array(
-					'name'  => __( 'Black', 'indicaifba' ),
+					'name'  => __('Black', 'indicaifba'),
 					'slug'  => 'black',
 					'color' => '#000',
 				),
 				array(
-					'name'  => __( 'Dark Gray', 'indicaifba' ),
+					'name'  => __('Dark Gray', 'indicaifba'),
 					'slug'  => 'dark-gray',
 					'color' => '#2b2b2b',
 				),
 				array(
-					'name'  => __( 'Medium Gray', 'indicaifba' ),
+					'name'  => __('Medium Gray', 'indicaifba'),
 					'slug'  => 'medium-gray',
 					'color' => '#767676',
 				),
 				array(
-					'name'  => __( 'Light Gray', 'indicaifba' ),
+					'name'  => __('Light Gray', 'indicaifba'),
 					'slug'  => 'light-gray',
 					'color' => '#f5f5f5',
 				),
 				array(
-					'name'  => __( 'White', 'indicaifba' ),
+					'name'  => __('White', 'indicaifba'),
 					'slug'  => 'white',
 					'color' => '#fff',
 				),
@@ -194,18 +110,18 @@ if ( ! function_exists( 'indicaifba_setup' ) ) :
 		);
 
 		// Add RSS feed links to <head> for posts and comments.
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('automatic-feed-links');
 
 		// Enable support for Post Thumbnails, and declare two sizes.
-		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 672, 372, true );
-		add_image_size( 'indicaifba-full-width', 1038, 576, true );
+		add_theme_support('post-thumbnails');
+		set_post_thumbnail_size(672, 372, true);
+		add_image_size('indicaifba-full-width', 1038, 576, true);
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'primary'   => __( 'Top primary menu', 'indicaifba' ),
-				'secondary' => __( 'Secondary menu in left sidebar', 'indicaifba' ),
+				'primary'   => __('Top primary menu', 'indicaifba'),
+				'secondary' => __('Secondary menu in left sidebar', 'indicaifba'),
 			)
 		);
 
@@ -276,25 +192,26 @@ if ( ! function_exists( 'indicaifba_setup' ) ) :
 		);
 
 		// This theme uses its own gallery styles.
-		add_filter( 'use_default_gallery_style', '__return_false' );
+		add_filter('use_default_gallery_style', '__return_false');
 
 		// Indicate widget sidebars can use selective refresh in the Customizer.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support('customize-selective-refresh-widgets');
 	}
 endif; // indicaifba_setup()
-add_action( 'after_setup_theme', 'indicaifba_setup' );
+add_action('after_setup_theme', 'indicaifba_setup');
 
 /**
  * Adjust content_width value for image attachment template.
  *
  * @since Twenty Fourteen 1.0
  */
-function indicaifba_content_width() {
-	if ( is_attachment() && wp_attachment_is_image() ) {
+function indicaifba_content_width()
+{
+	if (is_attachment() && wp_attachment_is_image()) {
 		$GLOBALS['content_width'] = 810;
 	}
 }
-add_action( 'template_redirect', 'indicaifba_content_width' );
+add_action('template_redirect', 'indicaifba_content_width');
 
 /**
  * Getter function for Featured Content Plugin.
@@ -303,7 +220,8 @@ add_action( 'template_redirect', 'indicaifba_content_width' );
  *
  * @return array An array of WP_Post objects.
  */
-function indicaifba_get_featured_posts() {
+function indicaifba_get_featured_posts()
+{
 	/**
 	 * Filters the featured posts to return in Twenty Fourteen.
 	 *
@@ -311,7 +229,7 @@ function indicaifba_get_featured_posts() {
 	 *
 	 * @param array|bool $posts Array of featured posts, otherwise false.
 	 */
-	return apply_filters( 'indicaifba_get_featured_posts', array() );
+	return apply_filters('indicaifba_get_featured_posts', array());
 }
 
 /**
@@ -321,8 +239,9 @@ function indicaifba_get_featured_posts() {
  *
  * @return bool Whether there are featured posts.
  */
-function indicaifba_has_featured_posts() {
-	return ! is_paged() && (bool) indicaifba_get_featured_posts();
+function indicaifba_has_featured_posts()
+{
+	return !is_paged() && (bool) indicaifba_get_featured_posts();
 }
 
 /**
@@ -339,19 +258,20 @@ function indicaifba_has_featured_posts() {
  *
  * @return string
  */
-function indicaifba_font_url() {
+function indicaifba_font_url()
+{
 	$font_url = '';
 	/*
 	 * translators: If there are characters in your language that are not supported
 	 * by Lato, translate this to 'off'. Do not translate into your own language.
 	 */
-	if ( 'off' !== _x( 'on', 'Lato font: on or off', 'indicaifba' ) ) {
+	if ('off' !== _x('on', 'Lato font: on or off', 'indicaifba')) {
 		$query_args = array(
-			'family'  => urlencode( 'Lato:300,400,700,900,300italic,400italic,700italic' ),
-			'subset'  => urlencode( 'latin,latin-ext' ),
-			'display' => urlencode( 'fallback' ),
+			'family'  => urlencode('Lato:300,400,700,900,300italic,400italic,700italic'),
+			'subset'  => urlencode('latin,latin-ext'),
+			'display' => urlencode('fallback'),
 		);
-		$font_url   = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+		$font_url   = add_query_arg($query_args, 'https://fonts.googleapis.com/css');
 	}
 
 	return $font_url;
@@ -362,15 +282,16 @@ function indicaifba_font_url() {
  *
  * @since Twenty Fourteen 1.0
  */
-function indicaifba_scripts() {
+function indicaifba_scripts()
+{
 	// Add Lato font, used in the main stylesheet.
-	wp_enqueue_style( 'indicaifba-lato', indicaifba_font_url(), array(), null );
+	wp_enqueue_style('indicaifba-lato', indicaifba_font_url(), array(), null);
 
 	// Add Genericons font, used in the main stylesheet.
 	//wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.3' );
 
 	// Load our main stylesheet.
-	wp_enqueue_style( 'indicaifba-style', get_stylesheet_uri(), array(), '20221101' );
+	wp_enqueue_style('indicaifba-style', get_stylesheet_uri(), array(), '20221101');
 
 	// Theme block stylesheet.
 	//wp_enqueue_style( 'indicaifba-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'indicaifba-style' ), '20210622' );
@@ -379,16 +300,16 @@ function indicaifba_scripts() {
 	//wp_enqueue_style( 'indicaifba-ie', get_template_directory_uri() . '/css/ie.css', array( 'indicaifba-style' ), '20140711' );
 	//wp_style_add_data( 'indicaifba-ie', 'conditional', 'lt IE 9' );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 
 	/* if ( is_singular() && wp_attachment_is_image() ) {
 		wp_enqueue_script( 'indicaifba-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20150120' );
 	} */
 
-	if ( is_active_sidebar( 'sidebar-3' ) ) {
-		wp_enqueue_script( 'jquery-masonry' );
+	if (is_active_sidebar('sidebar-3')) {
+		wp_enqueue_script('jquery-masonry');
 	}
 
 	/* if ( is_front_page() && 'slider' === get_theme_mod( 'featured_content_layout' ) ) {
@@ -405,17 +326,18 @@ function indicaifba_scripts() {
 
 	//wp_enqueue_script( 'indicaifba-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20210122', true );
 }
-add_action( 'wp_enqueue_scripts', 'indicaifba_scripts' );
+add_action('wp_enqueue_scripts', 'indicaifba_scripts');
 
 /**
  * Enqueue Google fonts style to admin screen for custom header display.
  *
  * @since Twenty Fourteen 1.0
  */
-function indicaifba_admin_fonts() {
-	wp_enqueue_style( 'indicaifba-lato', indicaifba_font_url(), array(), null );
+function indicaifba_admin_fonts()
+{
+	wp_enqueue_style('indicaifba-lato', indicaifba_font_url(), array(), null);
 }
-add_action( 'admin_print_scripts-appearance_page_custom-header', 'indicaifba_admin_fonts' );
+add_action('admin_print_scripts-appearance_page_custom-header', 'indicaifba_admin_fonts');
 
 /**
  * Add preconnect for Google Fonts.
@@ -426,9 +348,10 @@ add_action( 'admin_print_scripts-appearance_page_custom-header', 'indicaifba_adm
  * @param string  $relation_type The relation type the URLs are printed.
  * @return array URLs to print for resource hints.
  */
-function indicaifba_resource_hints( $urls, $relation_type ) {
-	if ( wp_style_is( 'indicaifba-lato', 'queue' ) && 'preconnect' === $relation_type ) {
-		if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '>=' ) ) {
+function indicaifba_resource_hints($urls, $relation_type)
+{
+	if (wp_style_is('indicaifba-lato', 'queue') && 'preconnect' === $relation_type) {
+		if (version_compare($GLOBALS['wp_version'], '4.7-alpha', '>=')) {
 			$urls[] = array(
 				'href' => 'https://fonts.gstatic.com',
 				'crossorigin',
@@ -440,7 +363,7 @@ function indicaifba_resource_hints( $urls, $relation_type ) {
 
 	return $urls;
 }
-add_filter( 'wp_resource_hints', 'indicaifba_resource_hints', 10, 2 );
+add_filter('wp_resource_hints', 'indicaifba_resource_hints', 10, 2);
 
 /**
  * Enqueue styles for the block-based editor.
@@ -455,13 +378,14 @@ add_filter( 'wp_resource_hints', 'indicaifba_resource_hints', 10, 2 );
 }
 add_action( 'enqueue_block_editor_assets', 'indicaifba_block_editor_styles' ); */
 
-if ( ! function_exists( 'indicaifba_the_attached_image' ) ) :
+if (!function_exists('indicaifba_the_attached_image')) :
 	/**
 	 * Print the attached image with a link to the next attached image.
 	 *
 	 * @since Twenty Fourteen 1.0
 	 */
-	function indicaifba_the_attached_image() {
+	function indicaifba_the_attached_image()
+	{
 		$post = get_post();
 		/**
 		 * Filters the default Twenty Fourteen attachment size.
@@ -475,7 +399,7 @@ if ( ! function_exists( 'indicaifba_the_attached_image' ) ) :
 		 *     @type int $width  Width of the image in pixels. Default 810.
 		 * }
 		 */
-		$attachment_size     = apply_filters( 'indicaifba_attachment_size', array( 810, 810 ) );
+		$attachment_size     = apply_filters('indicaifba_attachment_size', array(810, 810));
 		$next_attachment_url = wp_get_attachment_url();
 
 		/*
@@ -498,49 +422,50 @@ if ( ! function_exists( 'indicaifba_the_attached_image' ) ) :
 		);
 
 		// If there is more than 1 attachment in a gallery...
-		if ( count( $attachment_ids ) > 1 ) {
-			foreach ( $attachment_ids as $idx => $attachment_id ) {
-				if ( $attachment_id == $post->ID ) {
-					$next_id = $attachment_ids[ ( $idx + 1 ) % count( $attachment_ids ) ];
+		if (count($attachment_ids) > 1) {
+			foreach ($attachment_ids as $idx => $attachment_id) {
+				if ($attachment_id == $post->ID) {
+					$next_id = $attachment_ids[($idx + 1) % count($attachment_ids)];
 					break;
 				}
 			}
 
-			if ( $next_id ) {
+			if ($next_id) {
 				// ...get the URL of the next image attachment.
-				$next_attachment_url = get_attachment_link( $next_id );
+				$next_attachment_url = get_attachment_link($next_id);
 			} else {
 				// ...or get the URL of the first image attachment.
-				$next_attachment_url = get_attachment_link( reset( $attachment_ids ) );
+				$next_attachment_url = get_attachment_link(reset($attachment_ids));
 			}
 		}
 
 		printf(
 			'<a href="%1$s" rel="attachment">%2$s</a>',
-			esc_url( $next_attachment_url ),
-			wp_get_attachment_image( $post->ID, $attachment_size )
+			esc_url($next_attachment_url),
+			wp_get_attachment_image($post->ID, $attachment_size)
 		);
 	}
 endif;
 
-if ( ! function_exists( 'indicaifba_list_authors' ) ) :
+if (!function_exists('indicaifba_list_authors')) :
 	/**
 	 * Print a list of all site contributors who published at least one post.
 	 *
 	 * @since Twenty Fourteen 1.0
 	 */
-	function indicaifba_list_authors() {
+	function indicaifba_list_authors()
+	{
 		$args = array(
 			'fields'     => 'ID',
 			'orderby'    => 'post_count',
 			'order'      => 'DESC',
-			'capability' => array( 'edit_posts' ),
+			'capability' => array('edit_posts'),
 		);
 
 		// Capability queries were only introduced in WP 5.9.
-		if ( version_compare( $GLOBALS['wp_version'], '5.9-alpha', '<' ) ) {
+		if (version_compare($GLOBALS['wp_version'], '5.9-alpha', '<')) {
 			$args['who'] = 'authors';
-			unset( $args['capability'] );
+			unset($args['capability']);
 		}
 
 		/**
@@ -550,39 +475,39 @@ if ( ! function_exists( 'indicaifba_list_authors' ) ) :
 		 *
 		 * @param array $args Query arguments.
 		 */
-		$args = apply_filters( 'indicaifba_list_authors_query_args', $args );
+		$args = apply_filters('indicaifba_list_authors_query_args', $args);
 
-		$contributor_ids = get_users( $args );
+		$contributor_ids = get_users($args);
 
-		foreach ( $contributor_ids as $contributor_id ) :
-			$post_count = count_user_posts( $contributor_id );
+		foreach ($contributor_ids as $contributor_id) :
+			$post_count = count_user_posts($contributor_id);
 
 			// Move on if user has not published a post (yet).
-			if ( ! $post_count ) {
+			if (!$post_count) {
 				continue;
 			}
-			?>
+?>
 
-		<div class="contributor">
-		<div class="contributor-info">
-			<div class="contributor-avatar"><?php echo get_avatar( $contributor_id, 132 ); ?></div>
-			<div class="contributor-summary">
-				<h2 class="contributor-name"><?php echo get_the_author_meta( 'display_name', $contributor_id ); ?></h2>
-				<p class="contributor-bio">
-					<?php echo get_the_author_meta( 'description', $contributor_id ); ?>
-				</p>
-				<a class="button contributor-posts-link" href="<?php echo esc_url( get_author_posts_url( $contributor_id ) ); ?>">
-					<?php
-					/* translators: %d: Post count. */
-					printf( _n( '%d Article', '%d Articles', $post_count, 'indicaifba' ), $post_count );
-					?>
-				</a>
-			</div><!-- .contributor-summary -->
-		</div><!-- .contributor-info -->
-	</div><!-- .contributor -->
+			<div class="contributor">
+				<div class="contributor-info">
+					<div class="contributor-avatar"><?php echo get_avatar($contributor_id, 132); ?></div>
+					<div class="contributor-summary">
+						<h2 class="contributor-name"><?php echo get_the_author_meta('display_name', $contributor_id); ?></h2>
+						<p class="contributor-bio">
+							<?php echo get_the_author_meta('description', $contributor_id); ?>
+						</p>
+						<a class="button contributor-posts-link" href="<?php echo esc_url(get_author_posts_url($contributor_id)); ?>">
+							<?php
+							/* translators: %d: Post count. */
+							printf(_n('%d Article', '%d Articles', $post_count, 'indicaifba'), $post_count);
+							?>
+						</a>
+					</div><!-- .contributor-summary -->
+				</div><!-- .contributor-info -->
+			</div><!-- .contributor -->
 
-			<?php
-	endforeach;
+<?php
+		endforeach;
 	}
 endif;
 
@@ -603,45 +528,47 @@ endif;
  * @param array $classes A list of existing body class values.
  * @return array The filtered body class list.
  */
-function indicaifba_body_classes( $classes ) {
-	if ( is_multi_author() ) {
+function indicaifba_body_classes($classes)
+{
+	if (is_multi_author()) {
 		$classes[] = 'group-blog';
 	}
 
-	if ( get_header_image() ) {
+	if (get_header_image()) {
 		$classes[] = 'header-image';
-	} elseif ( ! in_array( $GLOBALS['pagenow'], array( 'wp-activate.php', 'wp-signup.php' ), true ) ) {
+	} elseif (!in_array($GLOBALS['pagenow'], array('wp-activate.php', 'wp-signup.php'), true)) {
 		$classes[] = 'masthead-fixed';
 	}
 
-	if ( is_archive() || is_search() || is_home() ) {
+	if (is_archive() || is_search() || is_home()) {
 		$classes[] = 'list-view';
 	}
 
-	if ( ( ! is_active_sidebar( 'sidebar-2' ) )
-		|| is_page_template( 'page-templates/full-width.php' )
-		|| is_page_template( 'page-templates/contributors.php' )
-		|| is_attachment() ) {
+	if ((!is_active_sidebar('sidebar-2'))
+		|| is_page_template('page-templates/full-width.php')
+		|| is_page_template('page-templates/contributors.php')
+		|| is_attachment()
+	) {
 		$classes[] = 'full-width';
 	}
 
-	if ( is_active_sidebar( 'sidebar-3' ) ) {
+	if (is_active_sidebar('sidebar-3')) {
 		$classes[] = 'footer-widgets';
 	}
 
-	if ( is_singular() && ! is_front_page() ) {
+	if (is_singular() && !is_front_page()) {
 		$classes[] = 'singular';
 	}
 
-	if ( is_front_page() && 'slider' === get_theme_mod( 'featured_content_layout' ) ) {
+	if (is_front_page() && 'slider' === get_theme_mod('featured_content_layout')) {
 		$classes[] = 'slider';
-	} elseif ( is_front_page() ) {
+	} elseif (is_front_page()) {
 		$classes[] = 'grid';
 	}
 
 	return $classes;
 }
-add_filter( 'body_class', 'indicaifba_body_classes' );
+add_filter('body_class', 'indicaifba_body_classes');
 
 /**
  * Extend the default WordPress post classes.
@@ -654,14 +581,15 @@ add_filter( 'body_class', 'indicaifba_body_classes' );
  * @param array $classes A list of existing post class values.
  * @return array The filtered post class list.
  */
-function indicaifba_post_classes( $classes ) {
-	if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) {
+function indicaifba_post_classes($classes)
+{
+	if (!post_password_required() && !is_attachment() && has_post_thumbnail()) {
 		$classes[] = 'has-post-thumbnail';
 	}
 
 	return $classes;
 }
-add_filter( 'post_class', 'indicaifba_post_classes' );
+add_filter('post_class', 'indicaifba_post_classes');
 
 /**
  * Create a nicely formatted and more specific title element text for output
@@ -676,31 +604,32 @@ add_filter( 'post_class', 'indicaifba_post_classes' );
  * @param string $sep Optional separator.
  * @return string The filtered title.
  */
-function indicaifba_wp_title( $title, $sep ) {
+function indicaifba_wp_title($title, $sep)
+{
 	global $paged, $page;
 
-	if ( is_feed() ) {
+	if (is_feed()) {
 		return $title;
 	}
 
 	// Add the site name.
-	$title .= get_bloginfo( 'name', 'display' );
+	$title .= get_bloginfo('name', 'display');
 
 	// Add the site description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
+	$site_description = get_bloginfo('description', 'display');
+	if ($site_description && (is_home() || is_front_page())) {
 		$title = "$title $sep $site_description";
 	}
 
 	// Add a page number if necessary.
-	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
+	if (($paged >= 2 || $page >= 2) && !is_404()) {
 		/* translators: %s: Page number. */
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'indicaifba' ), max( $paged, $page ) );
+		$title = "$title $sep " . sprintf(__('Page %s', 'indicaifba'), max($paged, $page));
 	}
 
 	return $title;
 }
-add_filter( 'wp_title', 'indicaifba_wp_title', 10, 2 );
+add_filter('wp_title', 'indicaifba_wp_title', 10, 2);
 
 
 /**
@@ -712,7 +641,8 @@ add_filter( 'wp_title', 'indicaifba_wp_title', 10, 2 );
  * @param array $args Arguments for tag cloud widget.
  * @return array The filtered arguments for tag cloud widget.
  */
-function indicaifba_widget_tag_cloud_args( $args ) {
+function indicaifba_widget_tag_cloud_args($args)
+{
 	$args['largest']  = 22;
 	$args['smallest'] = 8;
 	$args['unit']     = 'pt';
@@ -720,9 +650,19 @@ function indicaifba_widget_tag_cloud_args( $args ) {
 
 	return $args;
 }
-add_filter( 'widget_tag_cloud_args', 'indicaifba_widget_tag_cloud_args' );
+add_filter('widget_tag_cloud_args', 'indicaifba_widget_tag_cloud_args');
 
+function attachment_search($query)
+{
+	if ($query->is_search) {
 
+		$query->set('post_status', array('publish', 'inherit'));
+	}
+
+	return $query;
+}
+
+add_filter('pre_get_posts', 'attachment_search');
 
 /*
  * Add Featured Content functionality.
@@ -738,10 +678,11 @@ add_filter( 'widget_tag_cloud_args', 'indicaifba_widget_tag_cloud_args' );
  * Enables installing Twenty Fourteen in WordPress versions before 4.0.0 when the
  * `is_customize_preview` function was introduced.
  */
-if ( ! function_exists( 'is_customize_preview' ) ) :
-	function is_customize_preview() {
+if (!function_exists('is_customize_preview')) :
+	function is_customize_preview()
+	{
 		global $wp_customize;
 
-		return ( $wp_customize instanceof WP_Customize_Manager ) && $wp_customize->is_preview();
+		return ($wp_customize instanceof WP_Customize_Manager) && $wp_customize->is_preview();
 	}
 endif;

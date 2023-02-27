@@ -76,7 +76,7 @@ if (have_posts()) {
 
                                             <div class="docSingle">
                                                 <div class="titulo">
-                                                    <span class="sufixodoc"></span>
+                                                    <div class="sufixodoc"></div>
                                                     <a id="linkDoc" class="linkDoc" target="_blank" href="<?php echo wp_get_attachment_url(); ?>">
                                                         <?php echo substr(get_the_title(), 0, 120); ?>
                                                     </a>

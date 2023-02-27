@@ -664,6 +664,7 @@ div.sobre .collapse a {
 	display: flex;
 	font-size: 10pt;
 	font-weight: 500;
+	border-radius: 5px;
 	text-transform: uppercase;
 	padding: 20px 40px 20px 20px;
 	color: #fff;
@@ -740,6 +741,31 @@ div.conteudoPagina .container {
 	margin: 0 auto;
 }
 
+div.conteudoPagina .conteudo iframe {
+	width: 100%;
+	border: none;
+	border-radius: 10px;
+	height: 620px;
+}
+
+div.conteudoPagina .conteudo a {
+	text-decoration: none;
+	color: #2287dd;
+	font-weight: 600;
+}
+
+div.conteudoPagina .conteudo a:hover {
+	text-decoration: underline;
+}
+
+div.conteudoPagina .conteudo ul {
+	list-style: none;
+}
+
+div.conteudoPagina .conteudo h4 {
+	margin: 40px 0 0 0;
+}
+
 div.conteudoPagina .conteudo div.wp-block-columns figure.aligncenter img {
 	margin-bottom: 10px;
 	box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
@@ -781,21 +807,22 @@ div.conteudoPagina .conteudo div.wp-block-columns figure.aligncenter figcaption 
 }
 
 .conteudoPagina #documentos .docsHeader {
-	background-color: #112b55;
+	background-color: #dee7de;
 	padding: 20px 20px;
 }
 
 .conteudoPagina #documentos .docType {
 	padding: 3px 20px;
 	font-size: 8pt;
-	background-color: #51698f;
-	color: #d8dfe9;
+	background-color: #fff;
+	color: #909c90;
 }
 
 .conteudoPagina #documentos .docSingle {
 	padding: 15px 20px;
 	font-size: 10pt;
 	align-items: center;
+	background-color: #ffffff50;
 }
 
 .conteudoPagina #documentos .docSingle .data {
@@ -808,7 +835,7 @@ div.conteudoPagina .conteudo div.wp-block-columns figure.aligncenter figcaption 
 }
 
 .conteudoPagina #documentos .docSingle:nth-child(even) {
-	background-color: #d8dfe9;
+	background-color: #e8eee880;
 }
 
 .conteudoPagina #documentos .containerDocSingle {
@@ -831,12 +858,15 @@ div.conteudoPagina .conteudo div.wp-block-columns figure.aligncenter figcaption 
 	background-color: #f4991f;
 }
 
-span.sufixodoc {
+div.sufixodoc {
 	border-radius: 2px;
-	color: #889cbb;
-	padding: 3px 5px 3px 0;
+	color: #909c90;
 	font-size: 8pt;
 	letter-spacing: .1em;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	padding-top: 3px;
 }
 
 .conteudoPagina #documentos .docsHeader,
@@ -847,7 +877,7 @@ span.sufixodoc {
 }
 
 .conteudoPagina #documentos .docsHeader .titulo {
-	font-weight: bold;
+	color: #909c90;
 	font-size: 15pt;
 	align-self: center;
 }
@@ -855,19 +885,22 @@ span.sufixodoc {
 .conteudoPagina #documentos .docSingle .titulo a {
 	text-decoration: none;
 	font-weight: bold;
-	color: #194fa9;
+	color: #112b55;
 	font-size: 11pt;
+	flex: 18;
 }
 
 .conteudoPagina #documentos .docSingle .data a {
 	text-decoration: none;
-	color: #51698f;
+	color: #909c90;
 }
 
 .conteudoPagina #documentos .docsHeader .titulo,
 .conteudoPagina #documentos .docType .titulo,
 .conteudoPagina #documentos .docSingle .titulo {
 	flex: 5;
+	display: flex;
+	align-items: center;
 }
 
 .conteudoPagina #documentos .docsHeader .docPesquisar,
@@ -881,18 +914,52 @@ span.sufixodoc {
 	border-radius: 5px;
 	border: none;
 	padding: 0 10px;
-	color: #d8dfe9;
-	background-color: #51698f;
+	color: #2b5732;
+	background-color: #ffffff;
 }
 
 .conteudoPagina #documentos .docsHeader .docPesquisar input::placeholder {
-	color: #d8dfe9;
+	color: #2b5732;
 }
 
 #noresults {
 	padding: 20px;
 }
 
+/* PESQUISA */
+
+.conteudoPagina div.resultadoPesquisa {
+	background-color: #ffffffe0;
+	margin: 20px 0;
+}
+
+.conteudoPagina div.resultadoPesquisa a {
+	text-decoration: none;
+	color: #333;
+}
+
+.conteudoPagina div.resultadoPesquisa .containerResultado {
+	padding: 20px 40px;
+}
+
+.conteudoPagina div.resultadoPesquisa .containerResultado .dataResultado {
+	font-size: 10pt;
+	color: #51698f;
+	display: flex;
+}
+
+.conteudoPagina div.resultadoPesquisa .containerResultado .dataResultado svg {
+	width: 20px;
+	margin-right: 5px;
+	color: #96ca96;
+}
+
+.conteudoPagina div.resultadoPesquisa .containerResultado .tituloResultado {
+	font-size: 20pt;
+	font-weight: bold;
+	margin: 10px 0 5px 0;
+	color: #112b55;
+}
 
 /* FOOTER */
 
@@ -1086,6 +1153,10 @@ footer .container .footer3 div.copyright {
 	header .headerBox .marcas a:last-of-type {
 		display: none;
 	}
+
+	div.conteudoPagina .conteudo iframe {
+		height: 500px;
+	}
 }
 
 @media screen and (max-width: 1100px) {
@@ -1149,6 +1220,10 @@ footer .container .footer3 div.copyright {
 		margin: 0;
 	}
 
+	div.conteudoPagina .conteudo iframe {
+		height: 470px;
+	}
+
 	footer {
 		position: relative;
 	}
@@ -1175,6 +1250,12 @@ footer .container .footer3 div.copyright {
 	}
 }
 
+@media screen and (max-width: 800px) {
+	div.conteudoPagina .conteudo iframe {
+		height: 400px;
+	}
+}
+
 @media screen and (max-width: 700px) {
 	.conteudoPagina #documentos .docsHeader {
 		display: block;
@@ -1188,8 +1269,21 @@ footer .container .footer3 div.copyright {
 		flex: 5;
 		text-align: right;
 	}
+
 	.conteudoPagina #documentos .docsHeader .docPesquisar input {
 		width: 100%;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	div.conteudoPagina .conteudo iframe {
+		height: 350px;
+	}
+}
+
+@media screen and (max-width: 570px) {
+	div.conteudoPagina .conteudo iframe {
+		height: 300px;
 	}
 }
 
@@ -1205,5 +1299,9 @@ footer .container .footer3 div.copyright {
 
 	header .headerBox div.pesquisar {
 		display: none;
+	}
+
+	div.conteudoPagina .conteudo iframe {
+		height: 270px;
 	}
 }
