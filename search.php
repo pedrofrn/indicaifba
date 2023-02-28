@@ -51,42 +51,7 @@
                                 </div>
                             </a>
                         </div>
-
-                        <!-- <hr style="border: 1px dashed #e1e1e1;"> -->
                     <?php } ?>
-                    <div class="containerDocSingle">
-                                    <?php
-                                    
-                                    $args = array(
-                                        'meta_key' => the_search_query(),
-                                        'post_type' => 'attachment',
-                                        'numberposts' => -1,
-                                        'post_status' => null,
-                                        'post_parent' => null,
-                                        'post_mime_type' => 'application/pdf, application/vnd.oasis.opendocument.text, application/vnd.oasis.opendocument.spreadsheet, application/x-vnd.oasis.opendocument.spreadsheet, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/rar, application/zip'
-                                    );
-                                    $my_posts = get_posts($args);
-                                    if ($my_posts) {
-                                        foreach ($my_posts as $post) {
-                                            setup_postdata($post); ?>
-
-                                            <div class="docSingle">
-                                                <div class="titulo">
-                                                    <span class="sufixodoc"></span>
-                                                    <a id="linkDoc" class="linkDoc" target="_blank" href="<?php echo wp_get_attachment_url(); ?>">
-                                                        <?php echo substr(get_the_title(), 0, 120); ?>
-                                                    </a>
-                                                </div>
-                                                <div class="data">
-                                                    <a target="_blank" href="<?php echo wp_get_attachment_url(); ?>">
-                                                        <?php the_time('d/m/Y \à\s H\hi'); ?>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                    <?php
-                                        }
-                                    } ?>
-                                </div>
                 <?php else : ?>
                     <div class="item entry">
                         <div class="tituloNoticiaDestaque">Nada encontrado!</div>

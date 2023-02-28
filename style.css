@@ -818,14 +818,14 @@ div.conteudoPagina .conteudo div.wp-block-columns figure.aligncenter figcaption 
 	color: #909c90;
 }
 
-.conteudoPagina #documentos .docSingle {
+.containerDocSingle .docSingle {
 	padding: 15px 20px;
 	font-size: 10pt;
 	align-items: center;
 	background-color: #ffffff50;
 }
 
-.conteudoPagina #documentos .docSingle .data {
+.containerDocSingle .docSingle .data {
 	text-align: right;
 	line-height: normal;
 }
@@ -834,11 +834,11 @@ div.conteudoPagina .conteudo div.wp-block-columns figure.aligncenter figcaption 
 	text-align: right;
 }
 
-.conteudoPagina #documentos .docSingle:nth-child(even) {
+.containerDocSingle .docSingle:nth-child(even) {
 	background-color: #e8eee880;
 }
 
-.conteudoPagina #documentos .containerDocSingle {
+.containerDocSingle {
 	max-height: 600px;
 	overflow-y: auto;
 }
@@ -871,7 +871,7 @@ div.sufixodoc {
 
 .conteudoPagina #documentos .docsHeader,
 .conteudoPagina #documentos .docType,
-.conteudoPagina #documentos .docSingle {
+.containerDocSingle .docSingle {
 	display: flex;
 	gap: 20px;
 }
@@ -882,7 +882,7 @@ div.sufixodoc {
 	align-self: center;
 }
 
-.conteudoPagina #documentos .docSingle .titulo a {
+.containerDocSingle .docSingle .titulo a {
 	text-decoration: none;
 	font-weight: bold;
 	color: #112b55;
@@ -890,22 +890,23 @@ div.sufixodoc {
 	flex: 18;
 }
 
-.conteudoPagina #documentos .docSingle .data a {
+.containerDocSingle .docSingle .data a {
 	text-decoration: none;
 	color: #909c90;
 }
 
 .conteudoPagina #documentos .docsHeader .titulo,
 .conteudoPagina #documentos .docType .titulo,
-.conteudoPagina #documentos .docSingle .titulo {
+.containerDocSingle .docSingle .titulo {
 	flex: 5;
 	display: flex;
 	align-items: center;
+	gap: 10px;
 }
 
 .conteudoPagina #documentos .docsHeader .docPesquisar,
 .conteudoPagina #documentos .docType .data,
-.conteudoPagina #documentos .docSingle .data {
+.containerDocSingle .docSingle .data {
 	flex: 1;
 }
 
@@ -938,6 +939,10 @@ div.sufixodoc {
 	color: #333;
 }
 
+.conteudoPagina div.resultadoPesquisa a:hover {
+	text-decoration: none;
+}
+
 .conteudoPagina div.resultadoPesquisa .containerResultado {
 	padding: 20px 40px;
 }
@@ -959,6 +964,7 @@ div.sufixodoc {
 	font-weight: bold;
 	margin: 10px 0 5px 0;
 	color: #112b55;
+	line-height: 1.2em;
 }
 
 /* FOOTER */

@@ -6,7 +6,6 @@ if (!isset($content_width)) {
 
 if (function_exists('register_sidebar')) {
 
-	# Area de widgets do rodapé
 	register_sidebar(array(
 		'name' => 'Informações do projeto',
 		'description' => 'Endereço, contatos e informações do campus',
@@ -16,7 +15,6 @@ if (function_exists('register_sidebar')) {
 		'after_title' => '',
 	));
 
-	# Area de widgets da rede social Facebook
 	register_sidebar(array(
 		'name' => 'Formulário de contato',
 		'description' => 'Espaço no rodapé para incluir plugin de contato',
@@ -28,51 +26,25 @@ if (function_exists('register_sidebar')) {
 }
 add_filter('widget_text', 'do_shortcode');
 
-/**
- * Twenty Fourteen only works in WordPress 3.6 or later.
- */
 if (version_compare($GLOBALS['wp_version'], '3.6', '<')) {
 	require get_template_directory() . '/inc/back-compat.php';
 }
 
 if (!function_exists('indicaifba_setup')) :
-	/**
-	 * Twenty Fourteen setup.
-	 *
-	 * Set up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support post thumbnails.
-	 *
-	 * @since Twenty Fourteen 1.0
-	 */
+
 	function indicaifba_setup()
 	{
 
-		/*
-		 * Make Twenty Fourteen available for translation.
-		 *
-		 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/indicaifba
-		 * If you're building a theme based on Twenty Fourteen, use a find and
-		 * replace to change 'indicaifba' to the name of your theme in all
-		 * template files.
-		 */
 		load_theme_textdomain('indicaifba');
 
-		// This theme styles the visual editor to resemble the theme style.
 		add_editor_style(array('css/editor-style.css', indicaifba_font_url(), 'genericons/genericons.css'));
 
-		// Load regular editor styles into the new block-based editor.
 		add_theme_support('editor-styles');
 
-		// Load default block styles.
 		add_theme_support('wp-block-styles');
 
-		// Add support for responsive embeds.
 		add_theme_support('responsive-embeds');
 
-		// Add support for custom color scheme.
 		add_theme_support(
 			'editor-color-palette',
 			array(
@@ -109,15 +81,12 @@ if (!function_exists('indicaifba_setup')) :
 			)
 		);
 
-		// Add RSS feed links to <head> for posts and comments.
 		add_theme_support('automatic-feed-links');
 
-		// Enable support for Post Thumbnails, and declare two sizes.
 		add_theme_support('post-thumbnails');
 		set_post_thumbnail_size(672, 372, true);
 		add_image_size('indicaifba-full-width', 1038, 576, true);
 
-		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
 				'primary'   => __('Top primary menu', 'indicaifba'),
@@ -125,10 +94,6 @@ if (!function_exists('indicaifba_setup')) :
 			)
 		);
 
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
 		add_theme_support(
 			'html5',
 			array(
@@ -143,10 +108,6 @@ if (!function_exists('indicaifba_setup')) :
 			)
 		);
 
-		/*
-		 * Enable support for Post Formats.
-		 * See https://wordpress.org/support/article/post-formats/
-		 */
 		add_theme_support(
 			'post-formats',
 			array(
@@ -160,20 +121,8 @@ if (!function_exists('indicaifba_setup')) :
 			)
 		);
 
-		// This theme allows users to set a custom background.
 		add_theme_support(
 			'custom-background',
-			/**
-			 * Filters Twenty Fourteen custom-background support arguments.
-			 *
-			 * @since Twenty Fourteen 1.0
-			 *
-			 * @param array $args {
-			 *     An array of custom-background support arguments.
-			 *
-			 *     @type string $default-color Default color of the background.
-			 * }
-			 */
 			apply_filters(
 				'indicaifba_custom_background_args',
 				array(
@@ -182,7 +131,6 @@ if (!function_exists('indicaifba_setup')) :
 			)
 		);
 
-		// Add support for featured content.
 		add_theme_support(
 			'featured-content',
 			array(
@@ -191,20 +139,13 @@ if (!function_exists('indicaifba_setup')) :
 			)
 		);
 
-		// This theme uses its own gallery styles.
 		add_filter('use_default_gallery_style', '__return_false');
 
-		// Indicate widget sidebars can use selective refresh in the Customizer.
 		add_theme_support('customize-selective-refresh-widgets');
 	}
 endif; // indicaifba_setup()
 add_action('after_setup_theme', 'indicaifba_setup');
 
-/**
- * Adjust content_width value for image attachment template.
- *
- * @since Twenty Fourteen 1.0
- */
 function indicaifba_content_width()
 {
 	if (is_attachment() && wp_attachment_is_image()) {
@@ -213,58 +154,20 @@ function indicaifba_content_width()
 }
 add_action('template_redirect', 'indicaifba_content_width');
 
-/**
- * Getter function for Featured Content Plugin.
- *
- * @since Twenty Fourteen 1.0
- *
- * @return array An array of WP_Post objects.
- */
 function indicaifba_get_featured_posts()
 {
-	/**
-	 * Filters the featured posts to return in Twenty Fourteen.
-	 *
-	 * @since Twenty Fourteen 1.0
-	 *
-	 * @param array|bool $posts Array of featured posts, otherwise false.
-	 */
 	return apply_filters('indicaifba_get_featured_posts', array());
 }
 
-/**
- * A helper conditional function that returns a boolean value.
- *
- * @since Twenty Fourteen 1.0
- *
- * @return bool Whether there are featured posts.
- */
 function indicaifba_has_featured_posts()
 {
 	return !is_paged() && (bool) indicaifba_get_featured_posts();
 }
 
-/**
- * Register three Twenty Fourteen widget areas.
- *
- * @since Twenty Fourteen 1.0
- */
-
-
-/**
- * Register Lato Google font for Twenty Fourteen.
- *
- * @since Twenty Fourteen 1.0
- *
- * @return string
- */
 function indicaifba_font_url()
 {
 	$font_url = '';
-	/*
-	 * translators: If there are characters in your language that are not supported
-	 * by Lato, translate this to 'off'. Do not translate into your own language.
-	 */
+
 	if ('off' !== _x('on', 'Lato font: on or off', 'indicaifba')) {
 		$query_args = array(
 			'family'  => urlencode('Lato:300,400,700,900,300italic,400italic,700italic'),
@@ -277,77 +180,29 @@ function indicaifba_font_url()
 	return $font_url;
 }
 
-/**
- * Enqueue scripts and styles for the front end.
- *
- * @since Twenty Fourteen 1.0
- */
 function indicaifba_scripts()
 {
-	// Add Lato font, used in the main stylesheet.
 	wp_enqueue_style('indicaifba-lato', indicaifba_font_url(), array(), null);
 
-	// Add Genericons font, used in the main stylesheet.
-	//wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.3' );
-
-	// Load our main stylesheet.
 	wp_enqueue_style('indicaifba-style', get_stylesheet_uri(), array(), '20221101');
-
-	// Theme block stylesheet.
-	//wp_enqueue_style( 'indicaifba-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'indicaifba-style' ), '20210622' );
-
-	// Load the Internet Explorer specific stylesheet.
-	//wp_enqueue_style( 'indicaifba-ie', get_template_directory_uri() . '/css/ie.css', array( 'indicaifba-style' ), '20140711' );
-	//wp_style_add_data( 'indicaifba-ie', 'conditional', 'lt IE 9' );
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
 
-	/* if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'indicaifba-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20150120' );
-	} */
-
 	if (is_active_sidebar('sidebar-3')) {
 		wp_enqueue_script('jquery-masonry');
 	}
 
-	/* if ( is_front_page() && 'slider' === get_theme_mod( 'featured_content_layout' ) ) {
-		wp_enqueue_script( 'indicaifba-slider', get_template_directory_uri() . '/js/slider.js', array( 'jquery' ), '20150120', true );
-		wp_localize_script(
-			'indicaifba-slider',
-			'featuredSliderDefaults',
-			array(
-				'prevText' => __( 'Previous', 'indicaifba' ),
-				'nextText' => __( 'Next', 'indicaifba' ),
-			)
-		);
-	} */
-
-	//wp_enqueue_script( 'indicaifba-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20210122', true );
 }
 add_action('wp_enqueue_scripts', 'indicaifba_scripts');
 
-/**
- * Enqueue Google fonts style to admin screen for custom header display.
- *
- * @since Twenty Fourteen 1.0
- */
 function indicaifba_admin_fonts()
 {
 	wp_enqueue_style('indicaifba-lato', indicaifba_font_url(), array(), null);
 }
 add_action('admin_print_scripts-appearance_page_custom-header', 'indicaifba_admin_fonts');
 
-/**
- * Add preconnect for Google Fonts.
- *
- * @since Twenty Fourteen 1.9
- *
- * @param array   $urls          URLs to print for resource hints.
- * @param string  $relation_type The relation type the URLs are printed.
- * @return array URLs to print for resource hints.
- */
 function indicaifba_resource_hints($urls, $relation_type)
 {
 	if (wp_style_is('indicaifba-lato', 'queue') && 'preconnect' === $relation_type) {
@@ -365,49 +220,15 @@ function indicaifba_resource_hints($urls, $relation_type)
 }
 add_filter('wp_resource_hints', 'indicaifba_resource_hints', 10, 2);
 
-/**
- * Enqueue styles for the block-based editor.
- *
- * @since Twenty Fourteen 2.3
- */
-/* function indicaifba_block_editor_styles() {
-	// Block styles.
-	wp_enqueue_style( 'indicaifba-block-editor-style', get_template_directory_uri() . '/css/editor-blocks.css', array(), '20210216' );
-	// Add custom fonts.
-	wp_enqueue_style( 'indicaifba-fonts', indicaifba_font_url(), array(), null );
-}
-add_action( 'enqueue_block_editor_assets', 'indicaifba_block_editor_styles' ); */
-
 if (!function_exists('indicaifba_the_attached_image')) :
-	/**
-	 * Print the attached image with a link to the next attached image.
-	 *
-	 * @since Twenty Fourteen 1.0
-	 */
+
 	function indicaifba_the_attached_image()
 	{
 		$post = get_post();
-		/**
-		 * Filters the default Twenty Fourteen attachment size.
-		 *
-		 * @since Twenty Fourteen 1.0
-		 *
-		 * @param array $dimensions {
-		 *     An array of height and width dimensions.
-		 *
-		 *     @type int $height Height of the image in pixels. Default 810.
-		 *     @type int $width  Width of the image in pixels. Default 810.
-		 * }
-		 */
+
 		$attachment_size     = apply_filters('indicaifba_attachment_size', array(810, 810));
 		$next_attachment_url = wp_get_attachment_url();
 
-		/*
-		 * Grab the IDs of all the image attachments in a gallery so we can get the URL
-		 * of the next adjacent image in a gallery, or the first image (if we're
-		 * looking at the last image in a gallery), or, in a gallery of one, just the
-		 * link to that image file.
-		 */
 		$attachment_ids = get_posts(
 			array(
 				'post_parent'    => $post->post_parent,
@@ -421,7 +242,6 @@ if (!function_exists('indicaifba_the_attached_image')) :
 			)
 		);
 
-		// If there is more than 1 attachment in a gallery...
 		if (count($attachment_ids) > 1) {
 			foreach ($attachment_ids as $idx => $attachment_id) {
 				if ($attachment_id == $post->ID) {
@@ -431,10 +251,8 @@ if (!function_exists('indicaifba_the_attached_image')) :
 			}
 
 			if ($next_id) {
-				// ...get the URL of the next image attachment.
 				$next_attachment_url = get_attachment_link($next_id);
 			} else {
-				// ...or get the URL of the first image attachment.
 				$next_attachment_url = get_attachment_link(reset($attachment_ids));
 			}
 		}
@@ -448,11 +266,7 @@ if (!function_exists('indicaifba_the_attached_image')) :
 endif;
 
 if (!function_exists('indicaifba_list_authors')) :
-	/**
-	 * Print a list of all site contributors who published at least one post.
-	 *
-	 * @since Twenty Fourteen 1.0
-	 */
+
 	function indicaifba_list_authors()
 	{
 		$args = array(
@@ -462,19 +276,11 @@ if (!function_exists('indicaifba_list_authors')) :
 			'capability' => array('edit_posts'),
 		);
 
-		// Capability queries were only introduced in WP 5.9.
 		if (version_compare($GLOBALS['wp_version'], '5.9-alpha', '<')) {
 			$args['who'] = 'authors';
 			unset($args['capability']);
 		}
 
-		/**
-		 * Filters query arguments for listing authors.
-		 *
-		 * @since 3.3
-		 *
-		 * @param array $args Query arguments.
-		 */
 		$args = apply_filters('indicaifba_list_authors_query_args', $args);
 
 		$contributor_ids = get_users($args);
@@ -482,7 +288,6 @@ if (!function_exists('indicaifba_list_authors')) :
 		foreach ($contributor_ids as $contributor_id) :
 			$post_count = count_user_posts($contributor_id);
 
-			// Move on if user has not published a post (yet).
 			if (!$post_count) {
 				continue;
 			}
@@ -498,36 +303,18 @@ if (!function_exists('indicaifba_list_authors')) :
 						</p>
 						<a class="button contributor-posts-link" href="<?php echo esc_url(get_author_posts_url($contributor_id)); ?>">
 							<?php
-							/* translators: %d: Post count. */
 							printf(_n('%d Article', '%d Articles', $post_count, 'indicaifba'), $post_count);
 							?>
 						</a>
-					</div><!-- .contributor-summary -->
-				</div><!-- .contributor-info -->
-			</div><!-- .contributor -->
+					</div>
+				</div>
+			</div>
 
 <?php
 		endforeach;
 	}
 endif;
 
-/**
- * Extend the default WordPress body classes.
- *
- * Adds body classes to denote:
- * 1. Single or multiple authors.
- * 2. Presence of header image except in Multisite signup and activate pages.
- * 3. Index views.
- * 4. Full-width content layout.
- * 5. Presence of footer widgets.
- * 6. Single views.
- * 7. Featured content layout.
- *
- * @since Twenty Fourteen 1.0
- *
- * @param array $classes A list of existing body class values.
- * @return array The filtered body class list.
- */
 function indicaifba_body_classes($classes)
 {
 	if (is_multi_author()) {
@@ -570,17 +357,6 @@ function indicaifba_body_classes($classes)
 }
 add_filter('body_class', 'indicaifba_body_classes');
 
-/**
- * Extend the default WordPress post classes.
- *
- * Adds a post class to denote:
- * Non-password protected page with a post thumbnail.
- *
- * @since Twenty Fourteen 1.0
- *
- * @param array $classes A list of existing post class values.
- * @return array The filtered post class list.
- */
 function indicaifba_post_classes($classes)
 {
 	if (!post_password_required() && !is_attachment() && has_post_thumbnail()) {
@@ -591,19 +367,6 @@ function indicaifba_post_classes($classes)
 }
 add_filter('post_class', 'indicaifba_post_classes');
 
-/**
- * Create a nicely formatted and more specific title element text for output
- * in head of document, based on current view.
- *
- * @since Twenty Fourteen 1.0
- *
- * @global int $paged WordPress archive pagination page count.
- * @global int $page  WordPress paginated post page count.
- *
- * @param string $title Default title text for current view.
- * @param string $sep Optional separator.
- * @return string The filtered title.
- */
 function indicaifba_wp_title($title, $sep)
 {
 	global $paged, $page;
@@ -612,18 +375,14 @@ function indicaifba_wp_title($title, $sep)
 		return $title;
 	}
 
-	// Add the site name.
 	$title .= get_bloginfo('name', 'display');
 
-	// Add the site description for the home/front page.
 	$site_description = get_bloginfo('description', 'display');
 	if ($site_description && (is_home() || is_front_page())) {
 		$title = "$title $sep $site_description";
 	}
 
-	// Add a page number if necessary.
 	if (($paged >= 2 || $page >= 2) && !is_404()) {
-		/* translators: %s: Page number. */
 		$title = "$title $sep " . sprintf(__('Page %s', 'indicaifba'), max($paged, $page));
 	}
 
@@ -631,16 +390,6 @@ function indicaifba_wp_title($title, $sep)
 }
 add_filter('wp_title', 'indicaifba_wp_title', 10, 2);
 
-
-/**
- * Modifies tag cloud widget arguments to display all tags in the same font size
- * and use list format for better accessibility.
- *
- * @since Twenty Fourteen 2.1
- *
- * @param array $args Arguments for tag cloud widget.
- * @return array The filtered arguments for tag cloud widget.
- */
 function indicaifba_widget_tag_cloud_args($args)
 {
 	$args['largest']  = 22;
@@ -664,20 +413,6 @@ function attachment_search($query)
 
 add_filter('pre_get_posts', 'attachment_search');
 
-/*
- * Add Featured Content functionality.
- *
- * To overwrite in a plugin, define your own Featured_Content class on or
- * before the 'setup_theme' hook.
- */
-
-
-/**
- * Add an `is_customize_preview` function if it is missing.
- *
- * Enables installing Twenty Fourteen in WordPress versions before 4.0.0 when the
- * `is_customize_preview` function was introduced.
- */
 if (!function_exists('is_customize_preview')) :
 	function is_customize_preview()
 	{
