@@ -22,7 +22,13 @@
 	<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/imagens/icone-indicaifba.png">
 	<link rel="preconnect" href="https://barra.brasil.gov.br">
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" title="default" media="screen" />
-
+	<title>
+		<?php if(is_front_page() || is_home()){
+			echo get_bloginfo('name');
+		} else{
+			echo the_title();
+		}?>
+	</title>
 	<?php wp_head(); ?>
 </head>
 
