@@ -74,3 +74,13 @@ function docSearch() {
         n.style.display = "none";
     }
 }
+
+(() => {
+	const nomeWPForm = document.querySelector('.nomeWPForm input');
+	const emailWPForm = document.querySelector('.emailWPForm input');
+	const mensagemWPForm = document.querySelector('.mensagemWPForm textarea');
+	
+	nomeWPForm.placeholder = 'Digite seu nome';
+	emailWPForm.placeholder = 'Digite seu e-mail';
+	mensagemWPForm.placeholder = 'Seu comentário ou mensagem...';
+})();

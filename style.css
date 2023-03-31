@@ -856,7 +856,7 @@ div.conteudoPagina .conteudo div.wp-block-columns figure.aligncenter figcaption 
 
 .containerDocSingle::-webkit-scrollbar-thumb {
 	border-radius: 10px;
-	background-color: #f4991f;
+	background-color: #6a88b9;
 }
 
 div.sufixodoc {
@@ -1033,17 +1033,25 @@ footer .container {
 	text-decoration: none;
 }
 
+.footer2 .wpforms-container .wpforms-field {
+	padding: 0 !important;
+}
+
+.footer2 div.wpforms-container-full {
+	margin: 0 !important;
+}
+
 .footer2 .contactForm form input {
 	width: 100%;
-	height: 40px;
-	border-radius: 10px;
-	border: none;
-	font-size: 12pt;
-	color: #aec5eb;
-	padding: 0 15px;
-	margin-bottom: 10px;
-	font-weight: lighter;
-	background-color: #204074;
+	height: 40px !important;
+	border-radius: 10px !important;
+	border: none !important;
+	font-size: 12pt !important;
+	color: #aec5eb !important;
+	padding: 0 15px !important;
+	margin-bottom: 10px !important;
+	font-weight: lighter !important;
+	background-color: #204074 !important;
 }
 
 .footer2 .contactForm form textarea {
@@ -1051,6 +1059,7 @@ footer .container {
 	border-radius: 10px;
 	width: 100%;
 	border: none;
+	height: 90px !important;
 	font-size: 12pt;
 	padding: 10px 15px;
 	font-weight: 400;
@@ -1059,9 +1068,13 @@ footer .container {
 	background-color: #204074;
 }
 
-.footer2 .contactForm form input::placeholder {
-	color: #aec5eb;
-	font-weight: lighter;
+.footer2 .contactForm form input::placeholder, .footer2 .contactForm form textarea::placeholder {
+	color: #aec5eb !important;
+	font-weight: normal;
+}
+
+.footer2 div.wpforms-container-full .wpforms-form .wpforms-submit-container {
+	margin-top: 0 !important;
 }
 
 .footer2 .contactForm form button {

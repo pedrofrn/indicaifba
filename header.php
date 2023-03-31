@@ -11,7 +11,9 @@
 	<meta name="author" content="CASI/PRODIN" />
 	<meta name="keywords" content="ifba, campi, campus, unidades, avanca ifba, desenvolvimento institucional, dados, sistec, pnp, indicadores, setec, mec, educacao">
 
-	<meta property="og:image" content="#">
+	<meta property="og:title" content="IndicaIFBA" />
+	<meta property="og:description" content="IndicaIFBA - Gestão, monitoramento, avaliação e produção de dados indicadores do Instituto Federal de Educação, Ciência e Tecnologia da Bahia" />
+	<meta property="og:image" content="https://indicaifba.ifba.edu.br/wp-content/uploads/2023/03/imagem-og-indicaifba.png">
 	<meta property="og:image:width" content="500">
 	<meta property="og:image:height" content="500">
 	<meta property="og:url" content="https://indicaifba.ifba.edu.br/">
