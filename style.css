@@ -752,6 +752,7 @@ div.conteudoPagina .conteudo a {
 	text-decoration: none;
 	color: #2287dd;
 	font-weight: 600;
+	word-wrap: break-word;
 }
 
 div.conteudoPagina .conteudo a:hover {
@@ -807,19 +808,19 @@ div.conteudoPagina .conteudo div.wp-block-columns figure.aligncenter figcaption 
 }
 
 .conteudoPagina #documentos .docsHeader {
-	background-color: #dee7de;
-	padding: 20px 20px;
+	background-color: #e9eef9;
+	padding: 20px 15px;
 }
 
 .conteudoPagina #documentos .docType {
-	padding: 3px 20px;
+	padding: 3px 15px;
 	font-size: 8pt;
 	background-color: #fff;
-	color: #909c90;
+	color: #7b7d87;
 }
 
 .containerDocSingle .docSingle {
-	padding: 15px 20px;
+	padding: 15px 15px;
 	font-size: 10pt;
 	align-items: center;
 	background-color: #ffffff50;
@@ -835,7 +836,7 @@ div.conteudoPagina .conteudo div.wp-block-columns figure.aligncenter figcaption 
 }
 
 .containerDocSingle .docSingle:nth-child(even) {
-	background-color: #e8eee880;
+	background-color: #e8eee800;
 }
 
 .containerDocSingle {
@@ -860,10 +861,10 @@ div.conteudoPagina .conteudo div.wp-block-columns figure.aligncenter figcaption 
 
 div.sufixodoc {
 	border-radius: 2px;
-	color: #909c90;
-	font-size: 8pt;
+	color: #7b7d87;
+	font-size: 7pt;
 	letter-spacing: .1em;
-	flex: 1;
+	flex: 0;
 	display: flex;
 	align-items: center;
 	padding-top: 3px;
@@ -877,7 +878,7 @@ div.sufixodoc {
 }
 
 .conteudoPagina #documentos .docsHeader .titulo {
-	color: #909c90;
+	color: #7b7d87;
 	font-size: 15pt;
 	align-self: center;
 }
@@ -892,7 +893,7 @@ div.sufixodoc {
 
 .containerDocSingle .docSingle .data a {
 	text-decoration: none;
-	color: #909c90;
+	color: #7b7d87;
 }
 
 .conteudoPagina #documentos .docsHeader .titulo,
